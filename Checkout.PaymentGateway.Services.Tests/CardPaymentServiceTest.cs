@@ -23,8 +23,8 @@ namespace Checkout.PaymentGateway.Services.Tests
             var loggerMock = new Mock<ILogger<CardPaymentService>>();
                         
             var cardPaymentService = new CardPaymentService(transactionServiceMock.Object, bankServiceMock.Object, modelConverter, loggerMock.Object);
-            var cardPaymentRequest = ModelDatHelper.GetValidCardPaymentRequest();
-            var merchant = ModelDatHelper.GetTestMerchant();
+            var cardPaymentRequest = ModelDataHelper.GetValidCardPaymentRequest();
+            var merchant = ModelDataHelper.GetTestMerchant();
 
             var cardPaymentContext = modelConverter.CreateCardPaymentContext(cardPaymentRequest, merchant);
 
@@ -57,8 +57,7 @@ namespace Checkout.PaymentGateway.Services.Tests
 
             transactionServiceMock.Setup(x => x.UpdateTransactionAsync(transaction.TransactionId, bankResponse)).ReturnsAsync(updatedTransaction);
 
-
-            var response = await cardPaymentService.ProcessAsync(cardPaymentRequest,merchant);
+            var response = await cardPaymentService.ProcessAsync(cardPaymentRequest, merchant);
 
             response.Should().NotBeNull();
             response.Amount.Should().Be(cardPaymentRequest.Amount);

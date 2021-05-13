@@ -4,10 +4,20 @@ namespace Checkout.PaymentGateway.Models
 {
     public class CardPaymentRequest
     {
+        /// <summary>
+        /// The 16 digit card number
+        /// </summary>
         public string Number { get; set; }
 
+        /// <summary>
+        /// Expiry month of the card.
+        /// Has to be between 1 and 12
+        /// </summary>
         public int ExpiryMonth { get; set; }
 
+        /// <summary>
+        /// Expiry year of the card
+        /// </summary>
         public int ExpiryYear { get; set; }
 
         /// <summary>

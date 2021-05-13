@@ -16,8 +16,8 @@ namespace Checkout.PaymentGateway.Services.Tests
             var maskingServiceMock = new Mock<IMaskingService>();
 
             var modelConverter = new ModelConverter(maskingServiceMock.Object);
-            var cardPaymentRequest = ModelDatHelper.GetValidCardPaymentRequest();
-            var merchant = ModelDatHelper.GetTestMerchant();
+            var cardPaymentRequest = ModelDataHelper.GetValidCardPaymentRequest();
+            var merchant = ModelDataHelper.GetTestMerchant();
 
             var cardContext = modelConverter.CreateCardPaymentContext(cardPaymentRequest, merchant);
 
