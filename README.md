@@ -99,6 +99,9 @@ Example Response:
 }
 ```
 
+## docker 
+
+The Dockerfile to build the api container image is located in `Checkout.PaymentGateway.Api` project folder
 
 
 
